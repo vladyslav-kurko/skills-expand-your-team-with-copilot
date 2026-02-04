@@ -510,7 +510,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleTwitterShare(activityName, details) {
     const url = window.location.origin + window.location.pathname;
     const text = encodeURIComponent(`Check out ${activityName} at Mergington High School! ${details.description}`);
-    const shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${encodeURIComponent(url)}`;
+    const shareUrl = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(url)}`;
     
     window.open(shareUrl, '_blank', 'width=600,height=400');
   }
