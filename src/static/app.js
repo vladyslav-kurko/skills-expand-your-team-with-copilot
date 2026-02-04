@@ -476,7 +476,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleCopyLink(activityName, details) {
     // Create a shareable URL with activity information
     const url = window.location.origin + window.location.pathname;
-    const shareText = `Check out ${activityName} at Mergington High School! ${details.description}`;
     const shareUrl = `${url}#${encodeURIComponent(activityName)}`;
     
     // Copy to clipboard
@@ -651,10 +650,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const facebookShareBtn = activityCard.querySelector(".facebook-share");
     const twitterShareBtn = activityCard.querySelector(".twitter-share");
 
-    copyLinkBtn.addEventListener("click", () => handleCopyLink(name, details));
-    emailShareBtn.addEventListener("click", () => handleEmailShare(name, details));
-    facebookShareBtn.addEventListener("click", () => handleFacebookShare(name, details));
-    twitterShareBtn.addEventListener("click", () => handleTwitterShare(name, details));
+    if (copyLinkBtn) {
+      copyLinkBtn.addEventListener("click", () => handleCopyLink(name, details));
+    }
+    if (emailShareBtn) {
+      emailShareBtn.addEventListener("click", () => handleEmailShare(name, details));
+    }
+    if (facebookShareBtn) {
+      facebookShareBtn.addEventListener("click", () => handleFacebookShare(name, details));
+    }
+    if (twitterShareBtn) {
+      twitterShareBtn.addEventListener("click", () => handleTwitterShare(name, details));
+    }
 
     // Add click handler for register button (only when authenticated)
     if (currentUser) {
